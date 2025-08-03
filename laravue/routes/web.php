@@ -38,4 +38,18 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('users', UserController::class);
 
-require __DIR__.'/auth.php';
+Route::get('test', function () {
+    $dataObject = [
+        'name' => 'John Doe',
+        'age' => '24 Years',
+    ];
+
+    $datastring = 'Name: udin, Age: 18 Years';
+
+    return Inertia::render('Test', [
+        'dataObject' => $dataObject,
+        'datastring' => $datastring
+    ]);
+})->name('test');
+
+require __DIR__ . '/auth.php';

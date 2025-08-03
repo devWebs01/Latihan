@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <p id="paragrafPertama">Ini adalah teks awal.</p>
+
+    <div class="kartu">Kartu 1</div>
+    <div class="kartu">Kartu 2</div>
+
+    <p>Paragraf satu</p>
+    <span>Span satu</span>
+
+
+    <button id="tombolAjaib" class="utama"></button>
+    <p class="deskripsi"></p>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <p id="judul"></p>
+
+    <img id="gambar" src="gambar-lama.jpg" alt="Gambar Lama">
+
+    <button id="pesan" class="btn btn-info">
+        btn-info
+    </button>
+
+    <script>
+        <!-- const pElement = document.getElementById("paragrafPertama");
+        console.log("pElement");
+ 
+        const kartuElements = document.getElementsByClassName('kartu');
+        console.log(kartuElements[0]); // Mengakses kartu pertama
+        // Contoh looping:
+        for (let i = 0; i < kartuElements.length; i++) {
+            console.log(kartuElements[i].textContent);
+        }
+ 
+        const semuaParagraf = document.getElementsByTagName('p');
+        console.log(semuaParagraf.length); // Jumlah paragraf -->
+
+
+
+        const semuaLi = document.querySelectorAll('li');
+        semuaLi.forEach(item => { // NodeList bisa pakai forEach
+            console.log(item.textContent);
+        });
+
+        const judul = document.getElementById('judul');
+        judul.textContent = "Judul Baru dari JS woow!"; // Mengubah teks
+
+        const gambar = document.getElementById('gambar');
+        gambar.src = "gambar-baru.png"; // Bisa langsung gini untuk atribut umum
+        gambar.setAttribute('alt', 'Gambar Baru yang Keren'); // Atau pakai setAttribute
+
+        let tombol = document.querySelector('#tombolAjaib');
+        tombol.style.backgroundColor = 'blue';
+        tombol.style.color = 'white';
+
+        const pesan = document.getElementById('pesan');
+        pesan.classList.remove('btn-info');
+        pesan.classList.add('btn-danger'); // Sekarang punya class 'highlight'
+
+        const button_pesan = document.getElementById("pesan");
+        button_pesan.textContent = "kontol";
+
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

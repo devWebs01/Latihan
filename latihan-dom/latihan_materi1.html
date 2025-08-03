@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan DOM</title>
+</head>
+
+<body>
+    <h1 id="judulHalaman">Halo Dunia!</h1>
+    <p class="deskripsi">Ini adalah paragraf deskripsi awal.</p>
+    <img id="gambarPengganti" src="https://via.placeholder.com/150" alt="Gambar Placeholder">
+    <button id="tombolUbah">Ubah Teks & Gambar</button>
+
+
+    <script>
+        const judul = document.getElementById('judulHalaman');
+        judul.textContent = "Selamat Belajar DOM!";
+
+        // MEMPERBAIKI bagian paragraf
+        const deskripsi = document.querySelector('.deskripsi'); // Pilih elemen pertama dengan class 'deskripsi'
+        // ATAU: const deskripsi = document.getElementsByClassName('deskripsi')[0];
+        deskripsi.textContent = "Paragraf ini sudah diubah oleh Javascript.";
+
+
+        const image = document.getElementById('gambarPengganti');
+        image.src = "https://picsum.photos/200";
+    </script>
+</body>
+
+</html>
