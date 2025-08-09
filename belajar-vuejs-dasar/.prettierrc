@@ -1,0 +1,14 @@
+{
+    "singleQuote": false,
+    "semi": true,
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "auto",
+    "vueIndentScriptAndStyle": true,
+    "phpVersion": "8.0",
+    "trailingCommaPHP": true,
+    "braceStyle": "psr-2"
+}
