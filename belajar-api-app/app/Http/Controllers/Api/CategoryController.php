@@ -12,16 +12,29 @@ use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 final class CategoryController extends Controller
 {
+    /**
+     * Menampilkan Daftar Kategori
+     *
+     * Mengambil daftar semua kategori yang telah diurutkan berdasarkan data terbaru.
+     * Hasilnya akan ditampilkan dalam format paginasi untuk efisiensi.
+     */
     public function index(Request $request): AnonymousResourceCollection
     {
-        $categories = Category::paginate(5);
+        $categories = Category::latest()->paginate(5);
 
         return CategoryResource::collection($categories);
     }
 
+    /**
+     * Membuat Kategori Baru
+     *
+     * Membuat dan menyimpan sebuah kategori baru ke dalam database.
+     * Data yang divalidasi akan digunakan untuk membuat entri baru.
+     */
     public function store(StoreCategoryRequest $request): JsonResponse
     {
         $category = Category::create($request->validated());
@@ -31,11 +44,26 @@ final class CategoryController extends Controller
             ->setStatusCode(201);
     }
 
+    /**
+     * Menampilkan Detail Kategori
+     *
+     * Mengambil dan menampilkan detail dari satu kategori spesifik berdasarkan ID.
+     *
+     * @param  Category  $category  Model Category yang diambil secara otomatis oleh Laravel (route model binding).
+     */
     public function show(Category $category): CategoryResource
     {
         return new CategoryResource($category);
     }
 
+    /**
+     * Memperbarui Kategori
+     *
+     * Memperbarui data dari sebuah kategori yang sudah ada berdasarkan ID.
+     * Hanya data yang divalidasi yang akan diperbarui.
+     *
+     * @param  Category  $category  Model Category yang akan diperbarui.
+     */
     public function update(UpdateCategoryRequest $request, Category $category): CategoryResource
     {
         $category->update($request->validated());
@@ -43,10 +71,19 @@ final class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
-    public function destroy(Category $category): JsonResponse
+    /**
+     * Menghapus Kategori
+     *
+     * Menghapus sebuah kategori dari database secara permanen.
+     *
+     * @param  Category  $category  Model Category yang akan dihapus.
+     *
+     * @response 204
+     */
+    public function destroy(Category $category): Response
     {
         $category->delete();
 
-        return response()->json(null, 204);
+        return response()->noContent();
     }
 }

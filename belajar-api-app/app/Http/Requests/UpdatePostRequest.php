@@ -25,11 +25,7 @@ class UpdatePostRequest extends FormRequest
             'category_id' => 'required|integer|exists:categories,id',
             'title' => 'required|string|min:3',
             'content' => 'required|string|min:5|max:225',
-            'slug' => 'required|string|unique:posts,slug,' . $this->post->id,
-            'category' => [
-                'id' => $this->category->id,
-                'name' => $this->category->name,
-            ],
+            'slug' => 'required|string|unique:posts,slug,'.$this->post->id,
 
         ];
     }

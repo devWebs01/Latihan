@@ -31,16 +31,6 @@ final class PostController extends Controller
      *
      * Membuat dan menyimpan sebuah postingan baru ke dalam database.
      * Data yang divalidasi akan digunakan untuk membuat entri baru.
-     *
-     * @response 201 {
-     *   "data": {
-     *     "id": 1,
-     *     "title": "Judul Postingan Baru",
-     *     "content": "Ini adalah konten dari postingan baru.",
-     *     "created_at": "2025-08-06T12:00:00.000000Z",
-     *     "updated_at": "2025-08-06T12:00:00.000000Z"
-     *   }
-     * }
      */
     public function store(StorePostRequest $request): JsonResponse
     {
@@ -56,7 +46,7 @@ final class PostController extends Controller
      *
      * Mengambil dan menampilkan detail dari satu postingan spesifik berdasarkan ID.
      *
-     * @param Post $post Model Post yang diambil secara otomatis oleh Laravel (route model binding).
+     * @param  Post  $post  Model Post yang diambil secara otomatis oleh Laravel (route model binding).
      */
     public function show(Post $post): PostResource
     {
@@ -69,7 +59,7 @@ final class PostController extends Controller
      * Memperbarui data dari sebuah postingan yang sudah ada berdasarkan ID.
      * Hanya data yang divalidasi yang akan diperbarui.
      *
-     * @param Post $post Model Post yang akan diperbarui.
+     * @param  Post  $post  Model Post yang akan diperbarui.
      */
     public function update(UpdatePostRequest $request, Post $post): PostResource
     {
@@ -83,8 +73,7 @@ final class PostController extends Controller
      *
      * Menghapus sebuah postingan dari database secara permanen.
      *
-     * @param Post $post Model Post yang akan dihapus.
-     * @response 204
+     * @param  Post  $post  Model Post yang akan dihapus.
      */
     public function destroy(Post $post): Response
     {
